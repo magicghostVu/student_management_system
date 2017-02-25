@@ -1,14 +1,12 @@
 package test_source_file;
 
-import java.io.File;
 
 /**
  * Created by magic_000 on 25/02/2017.
  */
 public class Main {
-    public static void main(String[] args) {
-        File file = new File(System.getProperty("user.dir") + File.separator + "config/file.txt");
-        System.out.println(file.exists());
-
-    }
+    /*public static void main(String[] args) {
+        //File f;
+        HUtils.getSessionFactory();
+    }*/
 }

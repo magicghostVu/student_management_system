@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script src="/js/jquery-3.1.1.min.js"></script>
+    </head>
+
+    <body>
+        <h2>This is index page</h2>
+
+        <input id="id_student" type="text">
+
+        <button id="bnt_find">find by id</button>
+
+        <p id="p_result"></p>
+    <script >
+
+
+        var btn_find= $('#bnt_find').click(function () {
+           var idStudent= $('#id_student').val();
+
+
+           $.ajax({
+               url: "student",
+               method: "POST",
+               data: {
+                   id: idStudent
+               }
+
+           }).done(function (result) {
+
+               console.log(result);
+               $('#p_result').val("jhvb fkvfbkfsb");
+           })
+
+        });
+
+    </script>
+
+
+    </body>
+
+</html>
