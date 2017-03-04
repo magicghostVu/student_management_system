@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script src="/js/jquery-3.1.1.min.js"></script>
+    </head>
+
+    <body>
+        <h2>This is index page</h2>
+        <input id="id_student" type="text">
+        <button id="bnt_find">find by id</button>
+        <p id="p_result"></p>
+        <script>
+            var btn_find = $('#bnt_find').click(function () {
+                $('#p_result').text("Loading");
+                var idStudent = $('#id_student').val();
+                $.ajax({
+                    url: "objectkey",
+                    method: "POST",
+                    data: JSON.stringify({
+                        name: "Hong Phu",
+                        age: 22,
+                        job: "Game server developer"
+                    }),
+                    contentType: "application/json",
+                    dataType: 'json'
+
+                }).done(function (_result) {
+                    //var result = JSON.parse(_result);
+                    console.log(_result);
+                    //$('#p_result').text(result.name);
+                })
+
+            });
+        </script>
+    </body>
+</html>

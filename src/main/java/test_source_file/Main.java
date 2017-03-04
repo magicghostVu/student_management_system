@@ -6,7 +6,10 @@ package test_source_file;
  */
 public class Main {
     /*public static void main(String[] args) {
-        //File f;
-        HUtils.getSessionFactory();
+        List<Student> all= HiberFunction.getAllStudent();
+        Student[] resToJson= new Student[all.size()];
+        all.toArray(resToJson);
+        String jsonRes= new Gson().toJson(resToJson);
+        System.out.println(jsonRes);
     }*/
 }

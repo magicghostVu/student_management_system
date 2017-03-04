@@ -4,7 +4,7 @@ package common.msg;
  * Created by magic_000 on 25/02/2017.
  */
 public class CommonMessage {
-    String content;
+    private String content;
     public CommonMessage(String content){
         this.content=content;
     }

@@ -1,42 +1,215 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <script src="/js/jquery-3.1.1.min.js"></script>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <body>
-        <h2>This is index page</h2>
+    <title>List all students</title>
 
-        <input id="id_student" type="text">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
 
-        <button id="bnt_find">find by id</button>
+    <h1>List of all students</h1>
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Student Code</th>
+            <th>Address</th>
+            <th>Birthday</th>
+            <!--<th>Major</th>-->
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Student Code</th>
+            <th>Address</th>
+            <th>Birthday</th>
+            <!--<th>Major</th>-->
+            <th>Email</th>
+        </tr>
+        </tfoot>
+        <tbody id="body_table">
+        <!--<tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>-->
+        <!--<tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            <td>Information system</td>
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>
+        <tr>
+            <td><a href="profile.html">Hoang Manh Cam</a></td>
+            <td>13020523</td>
+            <td>Cua Lo, Nghe An</td>
+            <td>15/7/1995</td>
+            &lt;!&ndash;<td>Information system</td>&ndash;&gt;
+            <td>camhm58@vnu.edu.vn</td>
+        </tr>-->
+        </tbody>
+    </table>
+</div>
 
-        <p id="p_result"></p>
-    <script >
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $.ajax({
+            url: "students/all",
+            method: "GET",
+        }).done(function (data) {
+            var allStudents = JSON.parse(data);
+            var body_table = $("#body_table");
+            allStudents.forEach(function (element, index) {
+                var aTr= $("<tr></tr>");
+                var tdName= $("<td></td>");
+
+                var linkName= $("<a></a>");
+                linkName.attr("href", "/profile.html"+"?id="+ element.id);
+                linkName.text(element.name);
+
+                tdName.append(linkName);
+
+                var tdCode=  $("<td></td>").text(element.id);
+                var tdAddress=  $("<td></td>").text(element.address);
+                var tdBirthday=  $("<td></td>").text(element.birthday);
+                var tdEmail=  $("<td></td>").text(element.email);
+                aTr.append(tdName);
+                aTr.append(tdCode);
+                aTr.append(tdAddress);
+                aTr.append(tdBirthday);
+                aTr.append(tdEmail);
+                body_table.append(aTr);
+            });
+
+            /*var aTr= $("<tr></tr>");
+
+            var td1 = $("<td></td>").text("Vu Hong Phu");
+            var td2 = $("<td></td>").text("13020328");
+            var td3 = $("<td></td>").text("Thanh Ne, Thai Binh");
+            var td4= $("<td></td>").text("20/03/1995");
+            var td5= $("<td></td>").text("magicghost.vu@gmail.com");
 
 
-        var btn_find= $('#bnt_find').click(function () {
-           var idStudent= $('#id_student').val();
+            aTr.append(td1);
+            aTr.append(td2);
+            aTr.append(td3);
+            aTr.append(td4);
+            aTr.append(td5);
 
-
-           $.ajax({
-               url: "student",
-               method: "POST",
-               data: {
-                   id: idStudent
-               }
-
-           }).done(function (result) {
-
-               console.log(result);
-               $('#p_result').val("jhvb fkvfbkfsb");
-           })
-
+            body_table.append(aTr);*/
+            $('#example').DataTable();
         });
 
-    </script>
 
-
-    </body>
-
+    });
+</script>
+</body>
 </html>

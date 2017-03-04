@@ -22,8 +22,7 @@ public class HUtils {
         try {
             // create ServiceRegistry object from config hibernate.cfg.xml
             File file = new File(System.getProperty("user.dir") + File.separator + "config/hibernate.cfg.xml");
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()//
-                    .configure(file).build();
+            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure(file).build();
             // create metadata from ServiceRegistry
             Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
 

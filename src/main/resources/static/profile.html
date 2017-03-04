@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Student Profile</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .container {
+            padding-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Student Info</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"><img alt="Student Picture" src="img/avatar.gif"
+                                                                            class="img-circle img-responsive"></div>
+
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                <tr>
+                                    <td>Full name:</td>
+                                    <td id="name"></td>
+                                </tr>
+                                <tr>
+                                    <td>Student Code:</td>
+                                    <td id="student_code"></td>
+                                </tr>
+                                <tr>
+                                    <td>Class</td>
+                                    <td id="stdClass"></td>
+                                </tr>
+                                <tr>
+                                    <td>Date of Birth</td>
+                                    <td id="birthday"></td>
+                                </tr>
+                                <tr>
+                                    <td>Gender</td>
+                                    <td id="gender"></td>
+                                </tr>
+                                <tr>
+                                    <td>Home Address</td>
+                                    <td id="address"></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td id="email"><a href="mailto:info@support.com"></a></td>
+                                </tr>
+                                <td>Phone Number</td>
+                                <td id="phone"></td>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                    <a type="button" href="index.html" class="btn btn-sm btn-primary"><i
+                            class="glyphicon glyphicon-arrow-left"></i> Back</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+<script>
+    function getParameterByName(name, url) {
+        if (!url) {
+            url = window.location.href;
+        }
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    $(document).ready(function () {
+        var idStd= getParameterByName("id");
+        console.log(idStd);
+
+        $.ajax({
+            url: '/student?id='+idStd,
+            method: "POST"
+        }).done(function (data) {
+            var student= JSON.parse(data);
+            $("#name").text(student.name);
+            $('#student_code').text(student.id);
+            $("#stdClass").text(student.student_class);
+            $("#birthday").text(student.birthday);
+            $("#gender").text(student.gender);
+            $("#address").text(student.address);
+            $("#email").text(student.email);
+            $("#phone").text(student.phoneNumber);
+        });
+    });
+</script>
+
+</body>
+</html>

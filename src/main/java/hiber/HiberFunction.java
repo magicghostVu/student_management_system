@@ -11,11 +11,9 @@ import java.util.List;
 /**
  * Created by magic_000 on 25/02/2017.
  */
-public class Hiberfunction {
+public class HiberFunction {
 
     static SessionFactory sf= HUtils.getSessionFactory();
-
-
     public static Student getStudentById(Integer id){
         Session ss= sf.getCurrentSession();
         ss.getTransaction().begin();
@@ -23,9 +21,7 @@ public class Hiberfunction {
         ss.close();
         return  result;
     }
-
-
-    public static boolean updateStudent(Student student){
+    public static boolean updateOrAddStudent(Student student){
         Session ss= sf.getCurrentSession();
         try{
             ss.getTransaction().begin();
@@ -39,10 +35,7 @@ public class Hiberfunction {
             return false;
         }
         return true;
-
     }
-
-
     public static List<Student> searchByName(String name){
         String hql= "select student from "+ Student.class.getName()+ " as student where student.name like '"+ name+"%'";
         Session ss= sf.getCurrentSession();
@@ -52,13 +45,13 @@ public class Hiberfunction {
         ss.close();
         return result;
     }
-    /*public static void main(String[] args) {
-
-
-        List<Student> all= searchByName("Hoa");
-
-        System.out.println(all.size());
-
-    }*/
-
+    public static List<Student> getAllStudent(){
+        String hql= "select student from "+ Student.class.getName()+" as student";
+        Session ss= sf.getCurrentSession();
+        ss.getTransaction().begin();
+        Query<Student> q= ss.createQuery(hql);
+        List<Student> res= q.getResultList();
+        ss.close();
+        return res;
+    }
 }
