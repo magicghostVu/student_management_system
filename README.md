@@ -1,6 +1,4 @@
-# student_management_system
-this project use spring boot 
-to run
+# student_management_system, this project use spring boot to run
 1. Open this project in IntelliJ (or any java IDE)
 2. Edit file /config/hibernate.cfg.xml (line 8 and line 9)
 3. Sync maven project, load all the dependency of the maven project
