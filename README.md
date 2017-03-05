@@ -18,5 +18,5 @@ to run
 5. /student/add: with this api you will send a json to server(datatye ="application/json"), contain all information of a student you want to add, list of field have in file Student.java
 6. /student/update: similar with api 4
 
-bug: I still dont understand why hibernate not create id field in db with AI (auto increment) property, so at the begining, api 4 will not work
+bug: I still dont understand why hibernate not create id field in db with AI (auto increment) property, so at the begining, api 5 will not work
 you must fix this by adding AI property for id field in DB manually (by phpmyadmin or mySql workbench) then it work perfectly
