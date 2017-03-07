@@ -54,4 +54,23 @@ public class HiberFunction {
         ss.close();
         return res;
     }
+
+    public static boolean deleteAStudent(int id){
+        Student studentToDelete= getStudentById(id);
+        if (studentToDelete==null){
+            return false;
+        }else{
+            Session ss= sf.getCurrentSession();
+            try {
+                ss.getTransaction().begin();
+                ss.delete(studentToDelete);
+                ss.getTransaction().commit();
+                ss.close();
+                return true;
+            }catch (Exception e){
+                ss.getTransaction().rollback();
+                return false;
+            }
+        }
+    }
 }

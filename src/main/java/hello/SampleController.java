@@ -6,6 +6,9 @@ import define.err.ErrDefine;
 import entities.Student;
 import h.utils.HUtils;
 import hiber.HiberFunction;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.boot.SpringApplication;
@@ -61,6 +64,11 @@ public class SampleController {
             String msgResult = new Gson().toJson(result);
             return msgResult;
         }
+    }
+
+    @RequestMapping(value = "/post/json", method = RequestMethod.POST, consumes = "application/json")
+    public String postJson(@RequestBody String jsonData){
+         return jsonData;
     }
 
     @RequestMapping(value = "student/find", method = RequestMethod.POST)
@@ -182,9 +190,30 @@ public class SampleController {
         //return null;
     }
 
+    @RequestMapping(value = "student/delete")
+    public String deleteStudent(@RequestParam(name = "id") String id){
+        try {
+            int idStd= Integer.parseInt(id);
+            boolean res= HiberFunction.deleteAStudent(idStd);
+            if(res==true){
+                return new Gson().toJson(new CommonMessage(ErrDefine.SUCCESS));
+            }else{
+                return new Gson().toJson(new CommonMessage(ErrDefine.SERVER_ERROR));
+            }
+        }catch (NumberFormatException ne){
+            return new Gson().toJson(new CommonMessage(ErrDefine.ID_NOT_VALID));
+        }
+    }
 
     public static void main(String... args) {
-        HUtils.getSessionFactory();
+        //HUtils.getSessionFactory();
+        SessionFactory sf= HUtils.getSessionFactory();
+        Session ss= sf.getCurrentSession();
+        ss.getTransaction().begin();
+        String updateAIProps= "ALTER TABLE `student_management_system`.`students` CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT ''";
+        NativeQuery nq= ss.createNativeQuery(updateAIProps);
+        nq.executeUpdate();
+        ss.close();
         SpringApplication.run(SampleController.class, args);
     }
 }
