@@ -213,6 +213,9 @@ public class SampleController {
         String updateAIProps= "ALTER TABLE `student_management_system`.`students` CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT ''";
         NativeQuery nq= ss.createNativeQuery(updateAIProps);
         nq.executeUpdate();
+        String updateCollationDB= "ALTER SCHEMA `student_management_system`  DEFAULT COLLATE utf8_general_ci";
+        NativeQuery nq2= ss.createNativeQuery(updateCollationDB);
+        nq2.executeUpdate();
         ss.close();
         SpringApplication.run(SampleController.class, args);
     }
