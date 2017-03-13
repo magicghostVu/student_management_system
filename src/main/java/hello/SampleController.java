@@ -101,8 +101,8 @@ public class SampleController {
             if(studentJson.has("age")){
                 studentToBeAdd.setAge(studentJson.getInt("age"));
             }
-            if(studentJson.has("class")){
-                studentToBeAdd.setStudent_class(studentJson.getString("class"));
+            if(studentJson.has("student_class")){
+                studentToBeAdd.setStudent_class(studentJson.getString("student_class"));
             }
 
             if(studentJson.has("gender")){
@@ -113,8 +113,8 @@ public class SampleController {
                 studentToBeAdd.setEmail(studentJson.getString("email"));
             }
 
-            if(studentJson.has("phone")){
-                studentToBeAdd.setPhoneNumber(studentJson.getString("phone"));
+            if(studentJson.has("phoneNumber")){
+                studentToBeAdd.setPhoneNumber(studentJson.getString("phoneNumber"));
             }
 
             if(studentJson.has("birthday")){
@@ -157,8 +157,8 @@ public class SampleController {
                     studentToUpdate.setAge(stdNewAdd);
                 }
 
-                if(stdJsonObject.has("class")){
-                    String newClass= stdJsonObject.getString("class");
+                if(stdJsonObject.has("student_class")){
+                    String newClass= stdJsonObject.getString("student_class");
                     studentToUpdate.setStudent_class(newClass);
                 }
 
@@ -170,8 +170,8 @@ public class SampleController {
                     studentToUpdate.setGender(stdJsonObject.getString("gender"));
                 }
 
-                if(stdJsonObject.has("phone")){
-                    studentToUpdate.setPhoneNumber(stdJsonObject.getString("phone"));
+                if(stdJsonObject.has("phoneNumber")){
+                    studentToUpdate.setPhoneNumber(stdJsonObject.getString("phoneNumber"));
                 }
 
                 if(stdJsonObject.has("birthday")){
